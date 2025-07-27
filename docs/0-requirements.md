@@ -2,7 +2,7 @@
 
 ## Identified Problem or Need
 
-Replace this text with a clearly stated problem or need that exists that your project will attempt to solve / fulfil.
+When playing Dungeons and Dragons, DM's (dungeon/game masters) often find it
 
 
 ## End-User Requirements
