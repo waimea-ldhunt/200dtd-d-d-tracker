@@ -7,14 +7,13 @@ by Lachlan Hunt
 
 ## Project Description
 
-Replace this text with your project description and list the key features below
+A web app that allows the DM to effectively and efficiently manage creatures in encounters, take notes and see important details.
 
 - Add and Record Combat Encounters
 - Add Creatures to each Encounter
 - Add/Remove Creatures from Initiative
 - Organize Creatures based on Initiative
 - Manipulate Creatures in Encounter
-
 
 ---
 

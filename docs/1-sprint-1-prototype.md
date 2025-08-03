@@ -12,9 +12,9 @@ Develop a prototype that simulates the key functionality of the system, then tes
 
 ## Initial Database Design
 
-Replace this text with notes regarding the DB design.
+This first database design allows for different encounters to have multiple initiative slots connected to a character, each character has different stats and can be activated/deactivated in the initiative, the initiative table is used to display and connect the characters table to each encounter.
 
-![SCREENSHOT OF DB DESIGN](screenshots/example.png)
+![SCREENSHOT OF INITIAL DB DESIGN](screenshots\DBdesign-1.png)
 
 
 ---
@@ -25,7 +25,7 @@ The first stage of prototyping was to explore how the UI might 'flow' between st
 
 This Figma demo shows the initial design for the UI 'flow':
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/L42lq6V4v4lAU3iIqodMhr/D-D-Tracker---Flow-1?node-id=1-5&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 

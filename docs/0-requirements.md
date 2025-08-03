@@ -2,89 +2,84 @@
 
 ## Identified Problem or Need
 
-When playing Dungeons and Dragons, DM's (dungeon/game masters) often find it
+When playing Dungeons and Dragons, DMs (dungeon/game masters) often find it difficult to keep track of important information during combat, this can lead to confusion and an inability to lead efficient encounters.
 
 
 ## End-User Requirements
 
-Replace this text with a description of your typical end-users and their specific needs / expectations / requirements.
-
+An intuitive easy to use system that allows the end user to effectively and easily order important information and keep track of notes. End-Users might also desire some form of customization to their options and information.
 
 ## Proposed Solution
 
-Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
-
+My solution is a web app that allows the DM to effectively and efficiently manage creatures in encounters while also allowing them to make notes and see important details of each creature/encounter.
 
 ---
 
 # Relevant Implications
 
-## NAME OF IMPLICATION 1
+## End-User Implications
 
-Replace this text with a clear explanation of what the implication means.
-
-### Relevance to the System
-
-Replace this text with an explanation of why the implication is relevant to this particular project.
-
-### Impact / Considerations
-
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
-
-
-
-## NAME OF IMPLICATION 2
-
-Replace this text with a clear explanation of what the implication means.
+End-User Implications of a digital outcome are the specific needs of the end user that the digital outcome must consider.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+This Web App is designed to solve a problem for specific users, therefore it must solve those problems in a way that is effective for the specific end user and meets all of their needs.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to consider the exact specifications and requirements alongside the type of device my end-users tend to use. Considering these will allow me to meet the needs of my end-user more effectively.
 
 
+## Usability Implications
 
-## NAME OF IMPLICATION 3
-
-Replace this text with a clear explanation of what the implication means.
+Usability implications of a digital outcome are the ease of use and efficiency of the outcome for the end-user, preferable without requiring guidance.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The system is intended to be used easily and efficiently and so the implications of digital usability are very important for my project to ensure that it is effective and usable for my end-users.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to consider and follow all of Nielson's usability heuristics, these will guide my ability to ensure my web app is complete and easy to use for my desired end-users.
 
 
 
-## NAME OF IMPLICATION 4
+## Functionality Implications
 
-Replace this text with a clear explanation of what the implication means.
+Functionality implications of a digital outcome are the intended purpose of the outcome and wether or not it meets them.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The system is intended to solve a problem, if its functionality falls short or does not work at all, it will not be able to solve the problem and will not be a successful web app.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to consider how the web app is expected to work, how well it meets its purpose and if it contains any bugs because these things will impact the web apps ability to solve the problem.
 
 
 
-## NAME OF IMPLICATION 5
+## Aesthetic Implications
 
-Replace this text with a clear explanation of what the implication means.
+Aesthetic implications of a digital outcome are the design and visual aspects of the outcome for the end-users.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The system is intended to be used efficiently by the end users, however if the layout or design conventions are poor, the end-user will not be able to effectively use the web app.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to consider design conventions and wether or not I have made good use of the positioning color and font of each items in regard to the end-user, this will allow my app to appeal more to end users and suit their purpose.
 
 
+
+## Accessibility Implications
+
+Accessibility implications of a digital outcome are the availability and usability of the outcome for all end-users.
+
+### Relevance to the System
+
+This system is intended to be used easily and effectively by its users, they will be unable to do this if the web app is not available and usable for all users regardless of their abilities/platforms.
+
+### Impact / Considerations
+
+I will need to consider the abilities of my end user alongside the possible devices they may be using and account for this through changes in design or functionality, this will allow my web app to solve the problem more widely through a range of possible users.
