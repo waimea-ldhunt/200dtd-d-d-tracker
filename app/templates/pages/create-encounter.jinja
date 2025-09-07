@@ -1,0 +1,31 @@
+{#=====================================================
+  Home page
+  - 
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    D&D Combat Tracker | Create Encounter
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>Create an Encounter:</h2>
+
+    <article>
+        <form method="POST" action="/encounter/create">
+            <input name="name" placeholder="Encounter Name">
+            
+            <input name="description" placeholder="Encounter Description">
+
+            <input type="submit" value="Create">
+        </form>
+
+    </article>
+
+{% endblock %}

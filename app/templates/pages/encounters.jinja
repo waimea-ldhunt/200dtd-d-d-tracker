@@ -1,0 +1,67 @@
+{#=====================================================
+  Home page
+  - 
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    D&D Combat Tracker | Encounters
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>Encounters:</h2>
+
+    <article>
+        
+        {% for encounter in encounters %}
+            {% if encounter.pinned == 1 %}
+                <article class="encounter" onclick="location.href='/encounter/{{encounter.id}}'">
+                    <div>
+                        <a href="/encounter/{{encounter.id}}/unpin"><img src="/static/images/icon.svg"></a>
+                    </div>
+
+                    <div>
+                        <h4>{{encounter.name}}</h4>
+                        {{encounter.description}}
+                    </div>
+
+                    <div>
+                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete" ><img src="/static/images/trashcan.svg"></a>
+                    </div>
+                </article>
+            {% endif %}
+        {% endfor %}
+
+        #---#
+
+        {% for encounter in encounters %}
+            {% if encounter.pinned == 0 %}
+                <article class="encounter" onclick="location.href='/encounter/{{encounter.id}}'">
+                    <div>
+                        <a href="/encounter/{{encounter.id}}/pin"><img src="/static/images/icon.svg"></a>
+                    </div>
+
+                    <div>
+                        <h4>{{encounter.name}}</h4>
+                        {{encounter.description}}
+                    </div>
+
+                    <div>
+                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete" ><img src="/static/images/trashcan.svg"></a>
+                    </div>
+                </article>
+            {% endif %}
+        {% endfor %}
+
+    </article>
+
+    <a role="button" href="/encounter/new">Create an Encounter</a>
+
+{% endblock %}
+

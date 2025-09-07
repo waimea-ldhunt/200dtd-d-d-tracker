@@ -50,58 +50,67 @@ This Figma demo shows the initial layout design for the UI:
 
 ### Testing
 
-Add a way to see character details better
+My end-user after testing it told me to add a way to see character details more easily and so that only the important details can go on the encounter page preserving space and keeping the page less cluttered.
 
-"You need a way to delete the characters from the encounter or deactivate them"
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I decided to add a dropdown that you can access from the encounter screen by clicking on a character which lets you see all of the details about each character.
 
 ![SCREENSHOT OF INITIAL CHARACTER DROPDOWN](screenshots\Character-Dropdown-1.png)
 
 ### Testing
 
-Add a way to see character details better
-
-"You need a way to delete the characters from the encounter or deactivate them"
+I showed this to my end user and they liked the improvement but they said "You need a way to delete the characters from the encounter or deactivate them" Which means that the characters can easily be manipulated from within the dropdowns.
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I added the buttons:
+- "Deactivate" - so that the users can remove the character from initiative.
+- "Add extra turn" - so that the users can give the character another place in the initiative.
+- "Delete" - so that the users can delete the character from the encounter.
 
 ![SCREENSHOT OF IMPROVED CHARACTER DROPDOWN](screenshots\Character-Dropdown-2.png)
 
-
-
+My end user approved this change and had no more suggestions.
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="450" src="https://embed.figma.com/proto/FENNKoCWYAOKxmx1g8VTbP/D-D-Tracker---Design-2?node-id=1-5&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
-
 
 ---
 
 ## Refined UI Prototype
 
-Having established the layout of the UI screens, the prototype was refined visually, in terms of colour, fonts, etc.
+Having established the layout of the UI screens, my prototype was refined visually, in terms of colour, fonts, etc.
 
 This Figma demo shows the UI with refinements applied:
 
-*FIGMA REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="360" height="800" src="https://embed.figma.com/proto/AgRufIIWhsML8vOGFdJWQr/D-D-Tracker---Design-3?node-id=2001-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2001%3A2&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I tested this version with my end-user and they liked the colours but encouraged me to include a dark mode for the website.
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+As I was finalising the colours, I asked my end-user multiple times to make decisions about specific colour layouts.
 
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+
+![SCREENSHOT OF IMPROVED INITIATIVE ITEM COLOURS](screenshots\Character-Colour-Choice.png)
+
+I asked my user which initiative colour design they wanted, and they chose the first option.
+
+![SCREENSHOT OF BUTTON COLOURS](screenshots\Button-Color-Choice.png)
+
+I asked my user which button colour design they preffered, and they chose the stronger accented red.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="360" height="800" src="https://embed.figma.com/proto/5VQZQgasq3PHQa0Dc8EIri/D-D-Tracker---Design-4?node-id=2001-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2001%3A2&embed-host=share" allowfullscreen></iframe>
 
 
 ---
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+The sprint went well, few major issues and most changes made to improve design and quality of life for the user.
+
+The Refined prototypes were made using a phone as an example device, this is to make sure that the website looks good and functions effectively on handheld devices that might be used by the end user.
 

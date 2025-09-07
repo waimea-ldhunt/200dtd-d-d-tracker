@@ -1,0 +1,103 @@
+{#=====================================================
+  Thing page
+  - Shows details of a single thing
+  - Has a delete link to remove it
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    D&D Combat Tracker | {{ encounter.name }}
+
+{% endblock %}
+
+
+{% block content %}
+        <header>
+            <article>
+                <h2>{{ encounter.name }}</h2>
+
+                <p>{{ encounter.description }}</p>
+            </article>
+        </header>
+    <hr/>
+    <article>
+        <h3>Initiative</h3>
+
+        {% for character in characters %}
+            {% if character.active == 1 %}
+                <article>
+
+                    <article class="character">
+                        <h3>{{character.roll}}</h3>
+                        <h4>{{character.name}}</h4>
+                        <p>{{character.hp}}/{{character.max_hp}}</p>
+                        <a onclick="dropdown({{character.init_id}})">V</a>
+                    </article>
+
+                    <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
+                        <h1>{{turn}}</h1>
+                    </section>
+
+                </article>
+            {% endif %}
+            
+        {% endfor %}
+
+    </article>
+    <hr/>
+    <article>
+        <h3>Inactive Characters:</h3>
+
+        {% for character in characters %}
+            {% if character.active == 0 %}
+                <article>
+
+                    <article class="character">
+                        <a href="/activate/{{character.init_id}}">Activate</a>
+                        <h4>{{character.name}}</h4>
+                        <p>{{character.hp}}/{{character.max_hp}}</p>
+                        <a onclick="dropdown({{character.init_id}})">V</a>
+                    </article>
+
+                    <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
+                        <h1>{{turn}}</h1>
+                    </section>
+
+                </article>
+            {% endif %}
+        {% endfor %}
+
+    </article>
+    <hr/>
+    <article>
+        <h3>Add a character</h3>
+        <form method="POST" action="/encounter/{{encounter.id}}/add">
+
+            <fieldset role="group">
+                <input name="name" placeholder="Name" required>
+
+                <select name="type" required>
+                    <option selected disabled>Character Type</option>
+                    <option>Player</option>
+                    <option>Enemy</option>
+                    <option>NPC</option>
+                    <option>Boss</option>
+                    <option>Other</option>
+                </select>
+            </fieldset>
+            
+            <div class="grid">
+                <input name="ac" placeholder="Armor Class" type="number">
+                <input name="max_hp" placeholder="Max Hitpoints" type="number" required>
+                <input name="initiative" placeholder="Initiative Bonus" type="number">
+            </div>
+
+            <textarea name="notes" placeholder="Notes" rows="5" cols="40" style="overflow: auto;" ></textarea>
+            <input type="submit" value="Add Character to Encounter">
+        </form>
+    </article>
+
+{% endblock %}
