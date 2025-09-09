@@ -1,4 +1,5 @@
 function dropdown(id) {
+    
     var element = document.getElementById("dropdown_"+id);
 
     if (element.className == "dropdown_closed") {

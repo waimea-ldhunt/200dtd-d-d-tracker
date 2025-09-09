@@ -7,6 +7,7 @@
 
 from flask import Flask, render_template, request, flash, redirect
 import html
+import random
 
 from app.helpers.session import init_session
 from app.helpers.db      import connect_db
@@ -140,16 +141,36 @@ def add_a_character(id):
 # Route for deleting a thing, Id given in the route
 #-----------------------------------------------------------
 @app.get("/encounter/<int:id>/delete")
-def delete_a_thing(id):
+def delete_encounter(id):
     with connect_db() as client:
         # Delete the thing from the DB
         sql = "DELETE FROM encounters WHERE id=?"
         params = [id]
         client.execute(sql, params)
 
-        # Go back to the home page
-        flash("Encounter deleted", "success")
         return redirect("/")
+    
+@app.get("/character/<int:id>/delete")
+def delete_character(id):
+    with connect_db() as client:
+        # Delete the thing from the DB
+
+        sql = "SELECT encounter_id FROM initiative WHERE character_id=?"
+        params = [id]
+        result = client.execute(sql, params)
+        encounter = result.rows[0][0]
+
+        sql = "DELETE FROM characters WHERE id=?"
+        params = [id]
+        client.execute(sql, params)
+
+        sql = "DELETE FROM initiative WHERE character_id=?"
+        params = [id]
+        client.execute(sql, params)
+
+        
+        # Go back to the home page
+        return redirect(f"/encounter/{encounter}")
     
 
 
@@ -175,7 +196,7 @@ def unpin(id):
         # Go back to the home page
         return redirect("/")
     
-@app.get("/activate/<int:id>")
+@app.get("/character/<int:id>/activate")
 def activate(id):
     with connect_db() as client:
         # Delete the thing from the DB
@@ -188,5 +209,108 @@ def activate(id):
         result = client.execute(sql, params)
         encounter = result.rows[0][0]
 
+        # Go back to the home page
+        return redirect(f"/encounter/{encounter}")
+
+@app.get("/character/<int:id>/deactivate")
+def deactivate(id):
+    with connect_db() as client:
+        # Delete the thing from the DB
+        sql = "UPDATE initiative SET active=0 WHERE init_id=?"
+        params = [id]
+        client.execute(sql, params)
+        
+        sql = "SELECT encounter_id FROM initiative WHERE init_id=?"
+        params = [id]
+        result = client.execute(sql, params)
+        encounter = result.rows[0][0]
+
+        # Go back to the home page
+        return redirect(f"/encounter/{encounter}")
+    
+@app.get("/character/<int:id>/extra")
+def extra_turn(id):
+    with connect_db() as client:
+        # Delete the thing from the DB
+
+        sql = "SELECT encounter_id, active FROM initiative WHERE character_id=?"
+        params = [id]
+        result = client.execute(sql, params)
+        encounter = result.rows[0][0]
+        active = result.rows[0][1]
+
+        sql = "INSERT INTO initiative (encounter_id, character_id, active) VALUES (?, ?, ?)"
+        params = [encounter, id, active]
+        client.execute(sql, params)
+
+        
+        # Go back to the home page
+        return redirect(f"/encounter/{encounter}")
+    
+@app.get("/character/<int:id>/turn")
+def remove_turn(id):
+    with connect_db() as client:
+        # Delete the thing from the DB
+
+        sql = "SELECT encounter_id FROM initiative WHERE init_id=?"
+        params = [id]
+        result = client.execute(sql, params)
+        encounter = result.rows[0][0]
+
+        sql = "DELETE FROM initiative WHERE init_id=?"
+        params = [id]
+        client.execute(sql, params)
+   
+        # Go back to the home page
+        return redirect(f"/encounter/{encounter}")
+    
+@app.post("/character/<int:id>/update")
+def update_character(id):
+    with connect_db() as client:
+        # Delete the thing from the DB
+
+        hp = request.form.get("hp")
+        max_hp = request.form.get("max_hp")
+        ac = request.form.get("ac")
+        initiative = request.form.get("initiative")
+
+        if hp > max_hp:
+            hp = max_hp
+
+        sql = "UPDATE characters SET hp=?, max_hp=?, ac=?, initiative_bonus=? WHERE id=?"
+        params = [hp, max_hp, ac, initiative, id]
+        client.execute(sql, params)
+
+        sql = "SELECT encounter_id FROM initiative WHERE character_id=?"
+        params = [id]
+        result = client.execute(sql, params)
+        encounter = result.rows[0][0]
+    
+        # Go back to the home page
+        return redirect(f"/encounter/{encounter}")
+    
+@app.get("/character/<int:id>/roll")
+def roll(id):
+    with connect_db() as client:
+        # Delete the thing from the DB
+
+        sql = "SELECT character_id, encounter_id FROM initiative WHERE init_id=?"
+        params = [id]
+        result = client.execute(sql, params)
+        character = result.rows[0][0]
+        encounter = result.rows[0][1]
+
+        sql = "SELECT initiative_bonus FROM characters WHERE id=?"
+        params = [character]
+        result = client.execute(sql, params)
+        bonus = result.rows[0][0]
+
+        roll = random.randint(1,20) + bonus
+        
+        sql = "UPDATE initiative SET roll=? WHERE init_id=?"
+        params = [roll, id]
+        client.execute(sql, params)
+
+        
         # Go back to the home page
         return redirect(f"/encounter/{encounter}")

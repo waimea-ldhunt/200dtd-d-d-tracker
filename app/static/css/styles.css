@@ -63,3 +63,39 @@ div.grid {
     justify-content: space-between;
     gap: 1rem;
 }
+fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+section.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+a.secondary {
+    display: flex;
+    background-color: rgba(0,0,0,0);
+    border-width: 0.1rem;
+}
+section.row a {
+    flex-grow: 10;
+}
+
+h6#space {
+    margin-left: 4rem;
+    margin-right: 2rem;
+}
+
+h4#name {
+    width: max-content;
+}
+
