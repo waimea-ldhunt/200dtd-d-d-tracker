@@ -9,122 +9,176 @@
 
 {% block title %}
 
-    D&D Combat Tracker | {{ encounter.name }}
+    {{ encounter.name }}
 
 {% endblock %}
 
 
 {% block content %}
-        <header>
-            <article>
-                <h2>{{ encounter.name }}</h2>
+    <header>
+        <article>
+            <h2>{{ encounter.name }}</h2>
+            <p>{{ encounter.description }}</p>
+        </article>
+    </header>
 
-                <p>{{ encounter.description }}</p>
-            </article>
-        </header>
-    <hr/>
-    <article>
-        <h3>Initiative</h3>
+    {% if active %}
+        <hr/>
+        <article>
+            <h3>Initiative</h3>
 
-        {% for character in characters %}
-            {% if character.active == 1 %}
-                <article>
+            {% for character in characters %}
+                {% if character.active == 1 %}
+                    <article>
 
-                    <article class="character">
-                        {% if character.roll %}
-                            <h3>{{character.roll}}</h3>
-                        {% else %}
-                            <a role="button" class="secondary" href="/character/{{character.init_id}}/roll">Roll</a>
-                        {% endif %}
+                        <article class="character">
+                            {% if character.roll %}
+                                <h3>{{character.roll}}</h3>
+                            {% else %}
+                                <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/roll">Roll</a>
+                            {% endif %}
 
-                        <h4>{{character.name}}</h4>
-                        <p>{{character.hp}}/{{character.max_hp}}</p>
-                        <a onclick="dropdown({{character.init_id}})">V</a>
+                            <h4>{{character.name}}</h4>
+                            <p>{{character.hp}}/{{character.max_hp}}</p>
+                            <a onclick="dropdown({{character.init_id}})">V</a>
+                        </article>
+
+                        <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
+
+                            <form method="POST" action="/encounter/{{encounter.id}}/character/{{character.id}}/update">
+
+
+                                <section class="row">
+                                    <h4 id="name">{{character.name}}</h4>
+
+                                    {% if character.type == "P" %}
+                                        <h6><u>Player</u></h6>
+                                    {% elif character.type == "E" %}
+                                        <h6><u>Enemy</u></h6>
+                                    {% endif %}
+
+                                    <h6 id="space">|</h6>
+
+                                    <h6>Health:</h6>
+
+                                    <input name="hp" type="number" value="{{character.hp}}">
+
+                                    <h1>/</h1>
+
+                                    <input name="max_hp" type="number" value="{{character.max_hp}}">
+                                </section>
+
+                                <section class="row">
+                                    <fieldset>
+                                        <h6>AC</h6>
+                                        <input name="ac" type="number" value="{{character.ac}}">
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <h6>Initiative Bonus</h6>
+                                        <input name="initiative_bonus" type="number" value="{{character.initiative_bonus}}">
+                                    </fieldset>
+                                </section>
+
+                                <h6>Notes</h6>
+                                <textarea name="notes" placeholder="Notes">{{character.notes}}</textarea>
+
+                                <div role="group">
+                                    <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/deactivate">Deactivate</a>
+                                    <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/roll">Roll Initiative</a>
+                                    <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.id}}/extra_turn">Add Extra Turn</a>
+                                    <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete this turn?')" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/remove_turn">Remove Turn</a>
+                                    <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete {{character.name}}?')" href="/encounter/{{encounter.id}}/character/{{character.id}}/delete">Delete Character</a>
+                                </div>
+
+                                <input type="submit" value="Save Changes">
+                            </form>
+
+                        </section>
+
                     </article>
+                {% endif %}
 
-                    <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
+            {% endfor %}
 
-                        <form method="POST" action="/character/{{character.id}}/update">
-                            
+        </article>
+    {% endif %}
+    
+    {% if inactive %}
+        <hr/>
+        <article>
+            <h3>Inactive Characters:</h3>
 
-                            <section class="row">
-                                <h4 id="name">{{character.name}}</h4>
+            {% for character in characters %}
+                {% if character.active == 0 %}
+                    <article>
 
-                                {% if character.type == "P" %}
-                                    <h6><u>Player</u></h6>
-                                {% elif character.type == "E" %}
-                                    <h6><u>Enemy</u></h6>
-                                {% endif %}
+                        <article class="character">
+                            <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/activate">Activate</a>
+                            <h4>{{character.name}}</h4>
+                            <p>{{character.hp}}/{{character.max_hp}}</p>
+                            <a onclick="dropdown({{character.init_id}})">V</a>
+                        </article>
 
-                                <h6 id="space">|</h6>
+                        <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
 
-                                <h6>Health:</h6>
+                            <form method="POST" action="/encounter/{{encounter.id}}/character/{{character.id}}/update">
 
-                                <input name="hp" type="number" value="{{character.hp}}">
 
-                                <h1>/</h1>
+                                <section class="row">
+                                    <h4 id="name">{{character.name}}</h4>
 
-                                <input name="max_hp" type="number" value="{{character.max_hp}}">
-                            </section>
+                                    {% if character.type == "P" %}
+                                        <h6><u>Player</u></h6>
+                                    {% elif character.type == "E" %}
+                                        <h6><u>Enemy</u></h6>
+                                    {% endif %}
 
-                            <section class="row">
-                                <fieldset>
-                                    <h6>AC</h6>
-                                    <input name="ac" type="number" value="{{character.ac}}">
-                                </fieldset>
-                                <fieldset>
-                                    <h6>Initiative</h6>
-                                    <input name="initiative" type="number" value="{{character.initiative_bonus}}">
-                                </fieldset>
-                            </section>
+                                    <h6 id="space">|</h6>
 
-                            <section class="row">
-                                <a role="button" class="secondary" href="/character/{{character.init_id}}/deactivate">Deactivate</a>
-                                
-                                <a role="button" class="secondary" href="/character/{{character.init_id}}/roll">Roll Initiative</a>
+                                    <h6>Health:</h6>
 
-                                <a role="button" class="secondary" href="/character/{{character.id}}/extra">Add Extra Turn</a>
-                                
-                                <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete this turn?')" href="/character/{{character.init_id}}/turn">Remove Turn</a>
-                                
-                                <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete {{character.name}}?')" href="/character/{{character.id}}/delete">Delete Character</a>
-                            </section>
-                            
-                            <input type="submit" value="Save Changes">
-                        </form>
+                                    <input name="hp" type="number" value="{{character.hp}}">
 
-                    </section>
+                                    <h1>/</h1>
 
-                </article>
-            {% endif %}
-            
-        {% endfor %}
+                                    <input name="max_hp" type="number" value="{{character.max_hp}}">
+                                </section>
 
-    </article>
-    <hr/>
-    <article>
-        <h3>Inactive Characters:</h3>
+                                <section class="row">
+                                    <fieldset>
+                                        <h6>AC</h6>
+                                        <input name="ac" type="number" value="{{character.ac}}">
+                                    </fieldset>
 
-        {% for character in characters %}
-            {% if character.active == 0 %}
-                <article>
+                                    <fieldset>
+                                        <h6>Initiative Bonus</h6>
+                                        <input name="initiative_bonus" type="number" value="{{character.initiative_bonus}}">
+                                    </fieldset>
+                                </section>
 
-                    <article class="character">
-                        <a role="button" class="secondary" href="/character/{{character.init_id}}/activate">Activate</a>
-                        <h4>{{character.name}}</h4>
-                        <p>{{character.hp}}/{{character.max_hp}}</p>
-                        <a onclick="dropdown({{character.init_id}})">V</a>
+                                <h6>Notes</h6>
+                                <textarea name="notes" placeholder="Notes" >{{character.notes}}</textarea>
+
+                                <div role="group">
+                                    <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/activate">Activate</a>
+                                    <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/roll">Roll Initiative</a>
+                                    <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.id}}/extra_turn">Add Extra Turn</a>
+                                    <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete this turn?')" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/remove_turn">Remove Turn</a>
+                                    <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete {{character.name}}?')" href="/encounter/{{encounter.id}}/character/{{character.id}}/delete">Delete Character</a>
+                                </div>
+
+                                <input type="submit" value="Save Changes">
+                            </form>
+
+                        </section>
+
                     </article>
+                {% endif %}
+            {% endfor %}
 
-                    <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
-                        <h1>{{character}}</h1>
-                    </section>
-
-                </article>
-            {% endif %}
-        {% endfor %}
-
-    </article>
+        </article>
+    {% endif %}
     <hr/>
     <article>
         <h3>Add a character</h3>

@@ -8,7 +8,7 @@
 
 {% block title %}
 
-    D&D Combat Tracker | Encounters
+    Encounters
 
 {% endblock %}
 
@@ -18,6 +18,10 @@
     <h2>Encounters:</h2>
 
     <article>
+
+        {% if not encounters %}
+            No Encounters :c
+        {% endif %}
         
         {% for encounter in encounters %}
             {% if encounter.pinned == 1 %}
@@ -38,7 +42,7 @@
             {% endif %}
         {% endfor %}
 
-        #---#
+        <hr/>
 
         {% for encounter in encounters %}
             {% if encounter.pinned == 0 %}
@@ -53,7 +57,7 @@
                     </div>
 
                     <div>
-                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete" ><img src="/static/images/trashcan.svg"></a>
+                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete"><img src="/static/images/trashcan.svg"></a>
                     </div>
                 </article>
             {% endif %}

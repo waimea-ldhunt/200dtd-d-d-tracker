@@ -19,18 +19,50 @@ Replace this text with notes regarding the DB schema.
 
 ## Initial Implementation
 
-The key functionality of the web app was implemented:
+Main Page / List of encounters:
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE SYSTEM HERE**
+- Multiple links to the main page and encounter creation page (Nav and Button).
+- List of existing encounters
+- 'pin' system to prioritize encounters
+- Delete button for each encounter
+
+![SCREENSHOT OF ENCOUNTERS PAGE](screenshots/EncountersPage.png)
+
+Creating an Encounter:
+
+- Inputs for name and description of encounter
+
+![SCREENSHOT OF ENCOUNTER CREATION PAGE](screenshots/CreateEncounterPage.png)
+
+Viewing an Encounter:
+
+- Name and description of encounter
+- Turns ordered by initiative roll
+- Roll button for turns without initiative
+- Section for characters that are inactive
+- Dropdown button for each turn to show the related character dropdown
+
+![SCREENSHOT OF ENCOUNTER PAGE](screenshots/EncounterPage.png)
+
+Character Details Dropdown:
+
+- Editable information form for the character with a 'save changes' button
+- Multiple buttons allowing the manipulation of the character or turn in the encounter
+
+![SCREENSHOT OF CHARACTER DROPDOWN](screenshots/DropdownPage.png)
+
+Adding a Character:
+
+![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/AddCharacterPage.png)
 
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Creating Encounters
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/CreateEncounterTest.gif)
 
 ### Changes / Improvements
 
