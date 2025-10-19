@@ -26,13 +26,13 @@ Main Page / List of encounters:
 - 'pin' system to prioritize encounters
 - Delete button for each encounter
 
-![SCREENSHOT OF ENCOUNTERS PAGE](screenshots/EncountersPage.png)
+![SCREENSHOT OF ENCOUNTERS PAGE](screenshots/sprint2/page-allEncounters.png)
 
 Creating an Encounter:
 
 - Inputs for name and description of encounter
 
-![SCREENSHOT OF ENCOUNTER CREATION PAGE](screenshots/CreateEncounterPage.png)
+![SCREENSHOT OF ENCOUNTER CREATION PAGE](screenshots/sprint2/page-createEncounter.png)
 
 Viewing an Encounter:
 
@@ -42,18 +42,20 @@ Viewing an Encounter:
 - Section for characters that are inactive
 - Dropdown button for each turn to show the related character dropdown
 
-![SCREENSHOT OF ENCOUNTER PAGE](screenshots/EncounterPage.png)
+![SCREENSHOT OF ENCOUNTER PAGE](screenshots/sprint2/page-encounter.png)
 
 Character Details Dropdown:
 
 - Editable information form for the character with a 'save changes' button
 - Multiple buttons allowing the manipulation of the character or turn in the encounter
 
-![SCREENSHOT OF CHARACTER DROPDOWN](screenshots/DropdownPage.png)
+![SCREENSHOT OF CHARACTER DROPDOWN](screenshots/sprint2/page-dropdown.png)
 
 Adding a Character:
 
-![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/AddCharacterPage.png)
+- 
+
+![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/sprint2/page-addCharacter.png)
 
 
 ---
@@ -62,7 +64,7 @@ Adding a Character:
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
 
-![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/CreateEncounterTest.gif)
+![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/sprint2/createEncounter.gif)
 
 ### Changes / Improvements
 

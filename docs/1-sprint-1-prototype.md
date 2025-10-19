@@ -14,7 +14,7 @@ Develop a prototype that simulates the key functionality of the system, then tes
 
 This first database design allows for different encounters to have multiple initiative slots connected to a character, each character has different stats and can be activated/deactivated in the initiative, the initiative table is used to display and connect the characters table to each encounter.
 
-![SCREENSHOT OF INITIAL DB DESIGN](screenshots\DBdesign-1.png)
+![SCREENSHOT OF INITIAL DB DESIGN](screenshots/sprint1/dbDesign1.png)
 
 
 ---
@@ -57,7 +57,7 @@ My end-user after testing it told me to add a way to see character details more 
 
 I decided to add a dropdown that you can access from the encounter screen by clicking on a character which lets you see all of the details about each character.
 
-![SCREENSHOT OF INITIAL CHARACTER DROPDOWN](screenshots\Character-Dropdown-1.png)
+![SCREENSHOT OF INITIAL CHARACTER DROPDOWN](screenshots/sprint1/dropdown1.png)
 
 ### Testing
 
@@ -70,7 +70,7 @@ I added the buttons:
 - "Add extra turn" - so that the users can give the character another place in the initiative.
 - "Delete" - so that the users can delete the character from the encounter.
 
-![SCREENSHOT OF IMPROVED CHARACTER DROPDOWN](screenshots\Character-Dropdown-2.png)
+![SCREENSHOT OF IMPROVED CHARACTER DROPDOWN](screenshots/sprint1/dropdown2.png)
 
 My end user approved this change and had no more suggestions.
 
@@ -95,11 +95,11 @@ I tested this version with my end-user and they liked the colours but encouraged
 As I was finalising the colours, I asked my end-user multiple times to make decisions about specific colour layouts.
 
 
-![SCREENSHOT OF IMPROVED INITIATIVE ITEM COLOURS](screenshots\Character-Colour-Choice.png)
+![SCREENSHOT OF IMPROVED INITIATIVE ITEM COLOURS](screenshots/sprint1/characterColour.png)
 
 I asked my user which initiative colour design they wanted, and they chose the first option.
 
-![SCREENSHOT OF BUTTON COLOURS](screenshots\Button-Color-Choice.png)
+![SCREENSHOT OF BUTTON COLOURS](screenshots/sprint1/buttonColour.png)
 
 I asked my user which button colour design they preffered, and they chose the stronger accented red.
 
