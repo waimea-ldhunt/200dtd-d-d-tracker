@@ -87,7 +87,7 @@ def view_encounter(id):
             # yes, so show it on the page
             encounter = result.rows[0]
 
-            sql = "SELECT * FROM initiative FULL JOIN characters ON initiative.character_id = characters.id WHERE encounter_id=? ORDER BY roll desc"
+            sql = "SELECT * FROM initiative FULL JOIN characters ON initiative.character_id = characters.id WHERE encounter_id=? ORDER BY roll desc, initiative_bonus desc"
             params = [id]
             result = client.execute(sql, params)
             characters = result.rows

@@ -19,7 +19,8 @@ A web app that allows the DM to effectively and efficiently manage creatures in 
 
 ## Project Links
 
-- [GitHub repo for the project](https://...)
+- [GitHub repo for the project](https://github.com/waimea-ldhunt/200dtd-d-d-tracker)
+- [Project Documentation](https://waimea-ldhunt.github.io/200dtd-d-d-tracker/)
 - [Live web app](https://...)
 
 
@@ -60,7 +61,4 @@ The project demonstrates a number of **advanced digital media (web) techniques**
 - Using a combination of steps to manipulate or enhance elements
 - Using a third-party library
 - Using composite effects
-
-** EDIT THESE LISTS ABOVE TO MATCH YOUR PROJECT**
-
 

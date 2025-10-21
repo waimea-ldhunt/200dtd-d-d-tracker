@@ -40,7 +40,7 @@
 
                             <h4>{{character.name}}</h4>
                             <p>{{character.hp}}/{{character.max_hp}}</p>
-                            <a onclick="dropdown({{character.init_id}})">V</a>
+                            <a onclick="dropdown({{character.init_id}})"><img src="/static/images/arrow.svg" id="arrow_{{character.init_id}}" class="arrow_down"></a>
                         </article>
 
                         <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
@@ -55,6 +55,8 @@
                                         <h6><u>Player</u></h6>
                                     {% elif character.type == "E" %}
                                         <h6><u>Enemy</u></h6>
+                                    {% elif character.type == "B" %}
+                                        <h6><u>Boss</u></h6>
                                     {% endif %}
 
                                     <h6 id="space">|</h6>
@@ -117,7 +119,7 @@
                             <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/activate">Activate</a>
                             <h4>{{character.name}}</h4>
                             <p>{{character.hp}}/{{character.max_hp}}</p>
-                            <a onclick="dropdown({{character.init_id}})">V</a>
+                            <a onclick="dropdown({{character.init_id}})"><img src="/static/images/arrow.svg" id="arrow_{{character.init_id}}" class="arrow_down"></a>
                         </article>
 
                         <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
@@ -132,6 +134,8 @@
                                         <h6><u>Player</u></h6>
                                     {% elif character.type == "E" %}
                                         <h6><u>Enemy</u></h6>
+                                    {% elif character.type == "B" %}
+                                        <h6><u>Boss</u></h6>
                                     {% endif %}
 
                                     <h6 id="space">|</h6>
@@ -182,13 +186,13 @@
     <hr/>
     <article>
         <h3>Add a character</h3>
-        <form method="POST" action="/encounter/{{encounter.id}}/add">
+        <form method="POST" action="/encounter/{{encounter.id}}/add" >
 
             <fieldset role="group">
                 <input name="name" placeholder="Name" required>
 
                 <select name="type" required>
-                    <option selected disabled>Character Type</option>
+                    <option selected disabled hidden>Character Type</option>
                     <option>Player</option>
                     <option>Enemy</option>
                     <option>NPC</option>

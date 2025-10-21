@@ -60,77 +60,67 @@ Adding a Character:
 
 ---
 
-## Testing Creating Encounters
+## Testing Creating
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Creating a test encounter and making sure it is properly inserted into the database.
 
-![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/sprint2/createEncounter.gif)
+![GIF OF ENCOUNTER CREATION](screenshots/sprint2/createEncounter.gif)
+
+![SCREENSHOT OF ENCOUNTER IN DATABASE](screenshots/sprint2/encounterDatabase.png)
+
+The encounter is successfully created and inserted into the database.
+
+This same functionality is replicated when creating a character:
+
+![GIF OF CHARACTER CREATION](screenshots/sprint2/addCharacter.gif)
+
+---
+
+## Testing Deleting
+
+![GIF OF ORIGINAL ENCOUNTER DELETION](screenshots/sprint2/deleteEncounter.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Testing this, I found that if you accdentally click the delete button, there is no way of going back which is a problem and a poor functionality issue, I fixed this by adding a confirmation whenever you click the delete button, this means that you have the freedom to go return without deleting the encounter
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![GIF OF ENCOUNTER DELETION](screenshots/sprint2/deleteEncounter2.gif)
+
+This feature is now in use across the entire website.
+
+![GIF OF CHARACTER DELETION](screenshots/sprint2/deleteCharacter.gif)
 
 
 ---
 
-## Testing FEATURE NAME HERE
+Both the creating and deletion features can be seen in the add and remove turn functions:
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
+![GIF OF ADDING AND REMOVING TURNS](screenshots/sprint2/addRemoveTurn.gif)
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Updating Character Details
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Rolling the initiative of each character after it is created is important, I added a 'roll' button when the character does not already have an initiative value.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
----
-
-## Testing FEATURE NAME HERE
-
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![GIF OF ROLLING INITIATIVE](screenshots/sprint2/rollInitiative.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+The functionality of this can be replicated in the character dropdown so that the users can update character details at any point.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![GIF OF UPDATING CHARACTER](screenshots/sprint2/updateCharacter.gif)
 
+![GIF OF DEACTIVATING CHARACTER](screenshots/sprint2/deactivate.gif)
 
----
+This functionality can also be used in the pin encounter feature:
 
-## Testing FEATURE NAME HERE
+![GIF OF PINNING ENCOUNTER](screenshots/sprint2/pinEncounter.gif)
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+## Testing ...
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 
 ### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
 ---
