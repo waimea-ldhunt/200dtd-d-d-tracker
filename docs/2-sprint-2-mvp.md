@@ -53,10 +53,9 @@ Character Details Dropdown:
 
 Adding a Character:
 
-- 
+- Inputs for name, character type, notes and all other character information
 
 ![SCREENSHOT OF CHARACTER CREATION PAGE](screenshots/sprint2/page-addCharacter.png)
-
 
 ---
 
@@ -74,6 +73,20 @@ This same functionality is replicated when creating a character:
 
 ![GIF OF CHARACTER CREATION](screenshots/sprint2/addCharacter.gif)
 
+This worked well until I tested it without entering a name:
+
+![GIF OF CHARACTER CREATION ERROR](screenshots/sprint2/error-addCharacter.gif)
+
+This resulted in a character without a name which is not ideal and likely to cause issues in the future, I fixed this by adding the 'required' tag to the input so that if it is empty, the form will not submit.
+
+![SCREENSHOT OF CHARACTER CREATION FIX](screenshots/sprint2/code-addCharacter.png)
+
+![GIF OF CHARACTER CREATION IMPROVED](screenshots/sprint2/error-addCharacter2.gif)
+
+# THIS GIF IS UNFINISHED, NEED TO RECREATE ^
+
+I added this feature to every input in the website to prevent this same issue.
+
 ---
 
 ## Testing Deleting
@@ -89,7 +102,6 @@ Testing this, I found that if you accdentally click the delete button, there is 
 This feature is now in use across the entire website.
 
 ![GIF OF CHARACTER DELETION](screenshots/sprint2/deleteCharacter.gif)
-
 
 ---
 
@@ -117,15 +129,14 @@ This functionality can also be used in the pin encounter feature:
 
 ![GIF OF PINNING ENCOUNTER](screenshots/sprint2/pinEncounter.gif)
 
-## Testing ...
-
-
-### Changes / Improvements
-
-
 ---
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+This sprint went well, most of the features and functions were quite similar across the site and so were easy to replicate, the few issues I found were mostly with usability and quality of life.
 
+All the functions I added, I tested with my end user and they liked everything and though the functionality was in a good state, they had some suggestions for more rows in the character database table for more things in the dropdown but they can be easily implemented and customized to the end-users needs.
+
+Example site usage:
+
+![GIF OF SITE USAGE](screenshots/sprint2/usageExample.gif)

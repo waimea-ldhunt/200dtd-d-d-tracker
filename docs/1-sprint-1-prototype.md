@@ -80,9 +80,35 @@ My end user approved this change and had no more suggestions.
 
 ## Refined UI Prototype
 
-Having established the layout of the UI screens, my prototype was refined visually, in terms of colour, fonts, etc.
+Having established the layout of the UI screens, my prototype was refined visually using colour and shaping.
 
-This Figma demo shows the UI with refinements applied:
+I showed my end user some colour scheme suggestions for the design of the website:
+
+![COLOUR THEME 1](screenshots/sprint1/colourScheme1.png)
+![COLOUR THEME 2](screenshots/sprint1/colourScheme2.png)
+![COLOUR THEME 3](screenshots/sprint1/colourScheme3.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![COLOUR THEME 4](screenshots/sprint1/colourScheme4.png)
+
+My end user ultimately decided on theme 2 as they liked the all red theme, I then used this theme when refining the UI prototype.
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="360" height="800" src="https://embed.figma.com/proto/AgRufIIWhsML8vOGFdJWQr/D-D-Tracker---Design-3?node-id=2001-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2001%3A2&embed-host=share" allowfullscreen></iframe>
 
