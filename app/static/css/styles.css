@@ -2,20 +2,6 @@
   User stylesheet - Building upon PicoCSS
 =====================================================*/
 
-
-/* ABOUT PAGE -------------------------------------------- */
-
-#tech-stack {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-#tech-stack article {
-    flex: 1;
-}
-
-
 /* MESSAGES -------------------------------------------- */
 
 #messages ul {
@@ -58,6 +44,17 @@ header {
     border-bottom-right-radius: 1rem;
 }
 
+@media screen and (max-width: 770px) {
+    .longResource {
+        display: none;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    #hp {
+        width: min-content;
+    }
+}
 
 /* Encounters Page */
 
@@ -75,6 +72,7 @@ article.encounter {
 
 article.encounter h4 {
     color: var(--text);
+    width: 20rem;
 }
 
 article#allEncounters {
@@ -98,6 +96,7 @@ a.button {
     background-color: var(--accent);
     color: var(--background);
     font-weight: bold;
+    border-radius: 1rem;
 }
 
 img.delete {
@@ -135,6 +134,7 @@ input.encounter_input {
 
 input.encounter_input::placeholder {
     color: var(--text);
+    opacity: 60%;
 }
 
 /* Encounter Page */
@@ -179,7 +179,8 @@ div.roll {
     border-radius: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    width: 4rem;
+    width: 5rem;
+    text-align: center;
 }
 
 div.roll h3 {
@@ -191,6 +192,7 @@ div.name {
     width: 20rem;
     justify-self: flex-start;
     color: var(--text);
+    text-align: center;
 }
 
 div.name h4 {
@@ -307,6 +309,7 @@ input.character_input {
 
 input.character_input::placeholder {
     color: var(--text);
+    opacity: 50%;
 }
 
 select#character_input {
@@ -330,6 +333,7 @@ textarea#character_input {
 
 textarea#character_input::placeholder {
     color: var(--text);
+    opacity: 60%;
 }
 
 u#type {
@@ -359,4 +363,9 @@ a.secondary#roll_button {
 }
 a.secondary#roll_button p {
     transform: translateY(0.4rem);
+}
+
+div#constant_row {
+    display: block;
+    flex-direction: row;
 }

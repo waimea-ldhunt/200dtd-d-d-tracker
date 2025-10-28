@@ -292,7 +292,7 @@ def remove_turn(encounter, id, turn_id):
         turns = result.rows
 
         # If deleting the last turn, delete the character instead
-        if turns.count() == 1:
+        if turns.__len__() == 1:
             return redirect(f"/encounter/{encounter}/character/{id}/delete")
 
         # Remove the turn from the database

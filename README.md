@@ -44,7 +44,7 @@ A web app that allows the DM to effectively and efficiently manage creatures in 
 
 This is a digital media and database project for **NCEA Level 2**, assessed against standards [91892](docs/as91892.pdf) and [91893](docs/as91892.pdf).
 
-The project is a web app that uses [Flask](https://flask.palletsprojects.com) for the server back-end, connecting to a SQLite database. The final deployment of the app is on [Render](https://render.com/), with the database hosted at [Turso](https://turso.tech/).
+The project is a web app that uses [Flask](https://flask.palletsprojects.com) for the server back-end, connecting to a SQLite database. The final deployment of the app is on [Render](https://two00dtd-dnd-tracker.onrender.com/).
 
 The app uses [Jinja2](https://jinja.palletsprojects.com/templates/) templating for structuring pages and data, and [PicoCSS](https://picocss.com/) as the starting point for styling the web front-end.
 
@@ -61,4 +61,3 @@ The project demonstrates a number of **advanced digital media (web) techniques**
 - Using a combination of steps to manipulate or enhance elements
 - Using a third-party library
 - Using composite effects
-
