@@ -8,6 +8,7 @@
 
 {% block title %}
 
+    {# Page Name #}
     Encounters
 
 {% endblock %}
@@ -19,15 +20,20 @@
 
     <article id="allEncounters">
 
+        {# If there are no encounters, show message #}
         {% if not encounters %}
             <h2 class="heading">No Encounters</h2>
         {% endif %}
         
+        {# For each pinned encounter #}
         {% for encounter in encounters %}
             {% if encounter.pinned == 1 %}
+
+                {# Row item that links to encounter page #}
                 <article class="encounter" onclick="location.href='/encounter/{{encounter.id}}'">
                     <div>
-                        <a href="/encounter/{{encounter.id}}/unpin"><img src="/static/images/filledStar.svg"></a>
+                        {# Clickable icon that unpins the encounter #}
+                        <a href="/encounter/{{encounter.id}}/unpin"><img src="/static/images/filledStar.svg" alt="Unpin Encounter"></a>
                     </div>
 
                     <div>
@@ -36,7 +42,8 @@
                     </div>
 
                     <div>
-                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete" ><img class="delete" src="/static/images/bin.svg"></a>
+                        {# Clickable icon that deletes the encounter #}
+                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete" ><img class="delete" src="/static/images/bin.svg" alt="Delete"></a>
                     </div>
                 </article>
             {% endif %}
@@ -44,11 +51,15 @@
 
         <hr/>
 
+        {# For each non pinned encounter #}
         {% for encounter in encounters %}
             {% if encounter.pinned == 0 %}
+
+                {# Row item that links to encounter page #}
                 <article class="encounter" onclick="location.href='/encounter/{{encounter.id}}'">
                     <div>
-                        <a href="/encounter/{{encounter.id}}/pin"><img src="/static/images/emptyStar.svg"></a>
+                        {# Clickable icon that pins the encounter #}
+                        <a href="/encounter/{{encounter.id}}/pin"><img src="/static/images/emptyStar.svg" alt="Pin Encounter"></a>
                     </div>
 
                     <div>
@@ -57,7 +68,8 @@
                     </div>
 
                     <div>
-                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete"><img class="delete" src="/static/images/bin.svg"></a>
+                        {# Clickable icon that deletes the encounter #}
+                        <a onclick="return confirm('Are you sure you wish to delete {{encounter.name}}?')" href="/encounter/{{encounter.id}}/delete"><img class="delete" src="/static/images/bin.svg" alt="Delete"></a>
                     </div>
                 </article>
             {% endif %}
@@ -65,6 +77,7 @@
 
     </article>
 
+    {# Button that links to create encounter page #}
     <a class="button" role="button" href="/encounter/new">Create an Encounter</a>
 
 {% endblock %}

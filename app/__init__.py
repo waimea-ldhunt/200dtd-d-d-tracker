@@ -137,8 +137,6 @@ def add_character(id):
     type = html.escape(type)
     notes = html.escape(notes)
 
-    type = type[0]
-
     with connect_db() as client:
 
         # Add character using the form inputs
@@ -153,8 +151,8 @@ def add_character(id):
         character_id = result.rows[0][0]
 
         # Add a turn for the new character
-        sql = "INSERT INTO initiative (encounter_id, character_id, active) VALUES (?, ?, ?)"
-        params = [id, character_id, 0]
+        sql = "INSERT INTO initiative (encounter_id, character_id) VALUES (?, ?)"
+        params = [id, character_id]
         client.execute(sql, params)
 
         # Redirect to the encounter page

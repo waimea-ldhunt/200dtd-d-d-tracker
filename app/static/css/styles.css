@@ -51,9 +51,6 @@ header {
     .row {
         flex-wrap: wrap;
     }
-    #hp {
-        width: min-content;
-    }
 }
 
 /* Encounters Page */
@@ -134,16 +131,27 @@ input.encounter_input {
 
 input.encounter_input::placeholder {
     color: var(--text);
-    opacity: 60%;
+    opacity: 40%;
 }
 
 /* Encounter Page */
 
-header, article#encounter, article#initiative, article#inactive, article#character_form {
+header,
+article#encounter,
+article#initiative,
+article#inactive,
+article#character_form {
     background-color: var(--background);
 }
 
-article#encounter h2, article#encounter p, article#initiative h3, article#inactive h3, article#character_form h3 {
+article#encounter h2,
+article#encounter p,
+article#initiative h3,
+article#inactive h3,
+article#character_form h3,
+h4#name,
+h6,
+article.item h1 {
     color: var(--text);
 }
 
@@ -207,13 +215,14 @@ div.health {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 9rem;
+    width: 9rem; 
 }
 
 div.health p{
     color: var(--background);
     transform: translateY(0.5rem);
     margin-right: 1rem;
+    text-align: center;
 }
 
 div.health img {
@@ -309,7 +318,7 @@ input.character_input {
 
 input.character_input::placeholder {
     color: var(--text);
-    opacity: 50%;
+    opacity: 40%;
 }
 
 select#character_input {
@@ -333,19 +342,11 @@ textarea#character_input {
 
 textarea#character_input::placeholder {
     color: var(--text);
-    opacity: 60%;
+    opacity: 40%;
 }
 
 u#type {
     color: var(--accent);
-}
-
-h4#name, h6 {
-    color: var(--text);
-}
-
-article.item h1 {
-    color: var(--text);
 }
 
 fieldset {
@@ -366,6 +367,14 @@ a.secondary#roll_button p {
 }
 
 div#constant_row {
-    display: block;
+    display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    padding: auto;
+}
+h6#health {
+    margin-right: 1rem;
 }

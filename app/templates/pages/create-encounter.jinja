@@ -8,6 +8,7 @@
 
 {% block title %}
 
+    {# Page Name #}
     Create Encounter
 
 {% endblock %}
@@ -18,11 +19,13 @@
     <h2 class="heading">Create an Encounter:</h2>
 
     <article class="encounter_form">
+        {# Form for inputting encounter details #}
         <form method="POST" action="/encounter/create">
             <input class="encounter_input" name="name" placeholder="Encounter Name">
             
             <input class="encounter_input" name="description" placeholder="Encounter Description">
 
+            {# Form Submit #}
             <input class="submit" type="submit" value="Create">
         </form>
 

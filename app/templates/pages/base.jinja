@@ -20,13 +20,17 @@
 
     <link rel="icon" href="/static/images/filledStar.svg">
 
+    {# Title of the page, with a block to change the title for each page #}
 	<title>D&D Combat Tracker | {% block title %}{% endblock %}</title>
 
     <script src="/static/js/utils.js"></script>
 
+    {# All stylesheets #}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
     <link rel="stylesheet" href="/static/css/styles.css">
+
+    {# Linking the custom javascript file #}
     <script src="/static/js/script.js"></script>
     
 </head>
@@ -34,12 +38,15 @@
 <body>
 
     <header>
+        {# Nav Menu #}
         <nav>
+            {# Left Nav #}
             <ul>
-                <li><img class="largeResource" src="/static/images/emptyStar.svg"></li>
+                <li><img class="largeResource" src="/static/images/emptyStar.svg" alt="Star Icon"></li>
                 <li class="navitem"><strong><a href="/">D&D Combat Tracker</a></strong></li>
             </ul>
 
+            {# Right Nav #}
             <ul>
                 <li class="navitem"><a href="/">All Encounters</a></li>
                 <li class="navitem">|</li>

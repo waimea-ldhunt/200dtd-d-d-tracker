@@ -3,16 +3,16 @@
 
 ## Sprint Goals
 
-Develop a bare-bones, working web application that provides the key functionality of the system, then test and refine it so that it can serve as the basis for the final phase of development in Sprint 3.
+Develop the underlying functionality of the web app providing the key functionality, testing and refining it so that it can be used to build upon ion Sprint 3.
 
 
 ---
 
 ## Implemented Database Schema
 
-Replace this text with notes regarding the DB schema.
+The implemented schema is very similar to the design, most changes simply were of name to make the wording more clear rather than functionality changes.
 
-![SCREENSHOT OF DB SCHEMA](screenshots/example.png)
+![SCREENSHOT OF DB SCHEMA](screenshots/sprint2/database.png)
 
 
 ---
@@ -81,10 +81,6 @@ This resulted in a character without a name which is not ideal and likely to cau
 
 ![SCREENSHOT OF CHARACTER CREATION FIX](screenshots/sprint2/code-addCharacter.png)
 
-![GIF OF CHARACTER CREATION IMPROVED](screenshots/sprint2/error-addCharacter2.gif)
-
-# THIS GIF IS UNFINISHED, NEED TO RECREATE ^
-
 I added this feature to every input in the website to prevent this same issue.
 
 ---
@@ -135,7 +131,9 @@ This functionality can also be used in the pin encounter feature:
 
 This sprint went well, most of the features and functions were quite similar across the site and so were easy to replicate, the few issues I found were mostly with usability and quality of life.
 
-All the functions I added, I tested with my end user and they liked everything and though the functionality was in a good state, they had some suggestions for more rows in the character database table for more things in the dropdown but they can be easily implemented and customized to the end-users needs.
+All the functions I added, I tested with my end user and they liked everything and though the functionality was in a good state.
+
+I tested some of this functionality with my end user and they found it to work well and had no problems with the way the functionality was handled.
 
 Example site usage:
 

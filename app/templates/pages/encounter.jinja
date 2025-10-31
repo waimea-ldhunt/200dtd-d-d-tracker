@@ -9,12 +9,15 @@
 
 {% block title %}
 
+    {# Page Name #}
     {{ encounter.name }}
 
 {% endblock %}
 
 
 {% block content %}
+
+    {# Header containing general encounter details #}
     <header>
         <article id="encounter">
             <h2>{{ encounter.name }}</h2>
@@ -22,16 +25,22 @@
         </article>
     </header>
 
+    {# Active character section #}
+    {# If any active characters: #}
     {% if active %}
         <hr class="line"/>
         <article id="initiative">
             <h3>Initiative</h3>
 
+            {# Go through each active character #}
             {% for character in characters %}
                 {% if character.active == 1 %}
                     <article class="item">
 
+                        {# Row details #}
                         <article class="character">
+
+                            {# If the character has an initiative roll, display otherwise display a 'roll' button #}
                             {% if character.roll %}
                                 <div class="roll">
                                     <h3>{{character.roll}}</h3>
@@ -40,49 +49,52 @@
                                 <a role="button" class="secondary" id="roll_button" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/roll"><p>Roll</p></a>
                             {% endif %}
                             
+                            {# Character name #}
                             <div class="name">
                                 <h4>{{character.name}}</h4>
                             </div>
 
+                            {# Character health (with heart icon) #}
                             <div class="health">
-                                <img id="heart" class="longResource" src="/static/images/heart.svg">
+                                <img id="heart" class="longResource" src="/static/images/heart.svg" alt="Heart Icon">
                                 <p><strong>{{character.hp}}</strong>/{{character.max_hp}}</p>
                             </div>
 
-                            <a onclick="dropdown({{character.init_id}})"><img src="/static/images/arrow.svg" id="arrow_{{character.init_id}}" class="arrow_down"></a>
+                            {# Dropdown button #}
+                            <a onclick="dropdown({{character.init_id}})"><img src="/static/images/arrow.svg" id="arrow_{{character.init_id}}" class="arrow_down" alt="Dropdown"></a>
                         </article>
 
+                        {# Dropdown section (closed by default) #}
                         <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
                             
                             <hr/>
 
+                            {# Form for updating character details #}
                             <form method="POST" action="/encounter/{{encounter.id}}/character/{{character.id}}/update">
 
 
                                 <section class="row">
                                     <h4 id="name">{{character.name}}</h4>
+                                    
+                                    <h6><u id="type">{{character.type}}</u></h6>
 
-                                    {% if character.type == "P" %}
-                                        <h6><u id="type">Player</u></h6>
-                                    {% elif character.type == "E" %}
-                                        <h6><u id="type">Enemy</u></h6>
-                                    {% elif character.type == "B" %}
-                                        <h6><u id="type">Boss</u></h6>
-                                    {% elif character.type == "N" %}
-                                        <h6><u id="type">NPC</u></h6>
-                                    {% endif %}
-
+                                    {# A space that disappears when the page is resized #}
                                     <h6 id="space" class="longResource">|</h6>
 
-                                    <h6>Health:</h6>
+                                    <div id="constant_row">
+                                        {# Character health details (inputs) #}
+                                        <h6 id="health">Health:</h6>
 
-                                    <input name="hp" id="hp" type="number" value="{{character.hp}}" class="character_input" max="999" min="-999">
+                                        <input name="hp" id="hp" type="number" value="{{character.hp}}" class="character_input" max="999" min="-999">
 
-                                    <h1 class="slash">/</h1>
+                                        <h1 class="slash">/</h1>
 
-                                    <input name="max_hp" id="hp" type="number" value="{{character.max_hp}}" class="character_input" max="999" min="1">
+                                        <input name="max_hp" id="hp" type="number" value="{{character.max_hp}}" class="character_input" max="999" min="1">
+
+                                    </div>
                                 </section>
 
+                                {# Other character details (inputs) #}
                                 <section class="row">
                                     <fieldset>
                                         <h6>AC</h6>
@@ -95,9 +107,11 @@
                                     </fieldset>
                                 </section>
 
+                                {# Character notes (input) #}
                                 <h6>Notes</h6>
                                 <textarea name="notes" placeholder="Notes" id="character_input">{{character.notes}}</textarea>
 
+                                {# Buttons for altering character, turn, ect. #}
                                 <section class="row">
                                     <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/deactivate">Deactivate</a>
                                     <a role="button" class="secondary" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/roll">Roll Initiative</a>
@@ -106,6 +120,7 @@
                                     <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete {{character.name}}?')" href="/encounter/{{encounter.id}}/character/{{character.id}}/delete">Delete Character</a>
                                 </section>
 
+                                {# Form submit #}
                                 <input class="submit" type="submit" value="Save Changes">
                             </form>
 
@@ -119,54 +134,58 @@
         </article>
     {% endif %}
     
+    {# Inactive character section #}
+    {# If any inactive characters: #}
     {% if inactive %}
         <hr class="line"/>
         <article id="inactive">
             <h3>Inactive Characters</h3>
 
+            {# Go through each inactive character #}
             {% for character in characters %}
                 {% if character.active == 0 %}
                     <article class="item">
 
+                        {# Row details #}
                         <article class="character">
 
+                            {# Activate button instead of initiative #}
                             <a role="button" class="activate" href="/encounter/{{encounter.id}}/character/{{character.init_id}}/activate">Activate</a>
                             
+                            {# Character name #}
                             <div class="name">
                                 <h4>{{character.name}}</h4>
                             </div>
 
+                            {# Character health (with heart icon) #}
                             <div class="health">
-                                <img id="heart" class="longResource" src="/static/images/heart.svg">
+                                <img id="heart" class="longResource" src="/static/images/heart.svg" alt="Heart Icon">
                                 <p><strong>{{character.hp}}</strong>/{{character.max_hp}}</p>
                             </div>
 
-                            <a onclick="dropdown({{character.init_id}})"><img src="/static/images/arrow.svg" id="arrow_{{character.init_id}}" class="arrow_down"></a>
+                            {# Dropdown button #}
+                            <a onclick="dropdown({{character.init_id}})"><img src="/static/images/arrow.svg" id="arrow_{{character.init_id}}" class="arrow_down" alt="Dropdown"></a>
                         </article>
 
+                        {# Dropdown section (closed by default) #}
                         <section id="dropdown_{{character.init_id}}" class="dropdown_closed">
                             
                             <hr/>
 
+                            {# Form for updating character details #}
                             <form method="POST" action="/encounter/{{encounter.id}}/character/{{character.id}}/update">
 
 
                                 <section class="row">
                                     <h4 id="name">{{character.name}}</h4>
+                                    
+                                    <h6><u id="type">{{character.type}}</u></h6>
 
-                                    {% if character.type == "P" %}
-                                        <h6><u id="type">Player</u></h6>
-                                    {% elif character.type == "E" %}
-                                        <h6><u id="type">Enemy</u></h6>
-                                    {% elif character.type == "B" %}
-                                        <h6><u id="type">Boss</u></h6>
-                                    {% elif character.type == "N" %}
-                                        <h6><u id="type">NPC</u></h6>
-                                    {% endif %}
-
+                                    {# A space that disappears when the page is resized #}
                                     <h6 id="space" class="longResource">|</h6>
 
-                                    <h6>Health:</h6>
+                                    {# Character health details (inputs) #}
+                                    <h6 id="health">Health: </h6>
 
                                     <div id="constant_row">
                                         <input name="hp" id="hp" type="number" value="{{character.hp}}" class="character_input" max="999" min="-999">
@@ -177,6 +196,7 @@
                                     </div>
                                 </section>
 
+                                {# Other character details (inputs) #}
                                 <section class="row">
                                     <fieldset>
                                         <h6>AC</h6>
@@ -189,6 +209,7 @@
                                     </fieldset>
                                 </section>
 
+                                {# Character notes (input) #}
                                 <h6>Notes</h6>
                                 <textarea name="notes" placeholder="Notes" id="character_input">{{character.notes}}</textarea>
 
@@ -200,6 +221,7 @@
                                     <a role="button" class="secondary" onclick="return confirm('Are you sure you wish to delete {{character.name}}?')" href="/encounter/{{encounter.id}}/character/{{character.id}}/delete">Delete Character</a>
                                 </section>
 
+                                {# Form submit #}
                                 <input class="submit" type="submit" value="Save Changes">
                             </form>
 
@@ -212,29 +234,38 @@
         </article>
     {% endif %}
     <hr class="line"/>
+
     <article id="character_form">
         <h3>Add a character</h3>
+
+        {# Form for character creation #}
         <form method="POST" action="/encounter/{{encounter.id}}/add" >
 
             <fieldset role="group">
+
+                {# Name Input #}
                 <input name="name" placeholder="Name" required  class="character_input">
 
-                <select name="type" required id="character_input">
-                    <option disabled selected hidden>Character Type</option>
+                {# Select input for character type #}
+                <select name="type" required id="character_input" aria-placeholder="Chara">
+                    <option disabled selected hidden value="">Character Type</option>
                     <option>Player</option>
                     <option>Enemy</option>
                     <option>NPC</option>
                     <option>Boss</option>
                     <option>Other</option>
                 </select>
+
             </fieldset>
             
+            {# Grit of stat inputs #}
             <div class="grid">
                 <input name="ac" placeholder="Armor Class" type="number" class="character_input" max="999" min="0">
-                <input name="max_hp" placeholder="Max Hitpoints" type="number" required class="character_input" max="999" min="1">
-                <input name="initiative" placeholder="Initiative Bonus" type="number" class="character_input" max="979" min="-979">
+                <input name="max_hp" placeholder="Max Hitpoints" type="number" required class="character_input"  max="999" min="1">
+                <input name="initiative" placeholder="Initiative Bonus" type="number" class="character_input"  max="979" min="-979"> 
             </div>
 
+            {# Scrollable text area for character notes #}
             <textarea name="notes" placeholder="Notes" rows="5" cols="40" style="overflow: auto;" id="character_input"></textarea>
             <input class="submit" type="submit" value="Add Character to Encounter">
         </form>
